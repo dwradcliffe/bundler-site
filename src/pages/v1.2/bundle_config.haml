@@ -60,7 +60,9 @@
       .notes
         Will set <code>NAME</code> to <code>VALUE</code> for all bundles 
         executed as the current user (i.e. global setting). The configuration 
-        will be stored in  <code>~/.bundle/config</code>.
+        will be stored in  <code>~/.bundle/config</code>. If <code>NAME</code> 
+        already is set, <code>NAME</code> will be overridden and user will be 
+        warned.
 
   .bullet#global
     .description
@@ -90,7 +92,7 @@
       :highlight_plain
         $ bundle config --delete NAME
       .notes
-        Will delete the configuration for <code>NAME</code> variable in both local and global sources.
+        Will delete the configuration for <code>NAME</code> variable in both local and global sources. Not compatible with --global or --local flag.
 
 %h2 Build options
 .contents
@@ -158,7 +160,7 @@
         %li 
           <code>path</code> (<code>BUNDLE_PATH</code>): The location on disk 
           to install gems. Defaults to <code>$GEM_HOME</code> in development 
-          and <code>vendor/bundler</code> when <code>--deployment</code> is used.
+          and <code>vendor/bundle</code> when <code>--deployment</code> is used.
         %li 
           <code>frozen</code> (<code>BUNDLE_FROZEN</code>): Disallow changes to 
           the <code>Gemfile</code>. Defaults to <code>true</code> when 
